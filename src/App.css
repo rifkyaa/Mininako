@@ -1,0 +1,161 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 4rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --hue: 0;
+  --sat: 0%;
+  --text-white: #fff;
+  --title-color: #000000;
+  --title-color-dark: #747171;
+  --main-color: #fdf6f2;
+  --dark-main-color: #f3e6d9;
+  --purple-color: #da91f9;
+  --bg-color: #754d7b;
+  --bg-color2: #fec689;
+  --shadow-color: box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Montserrat', sans-serif;
+  --unique-font: 'Playfair Display', serif;
+
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --big-font-size: 3.5rem;
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.813rem;
+  --tiny-font-size: 0.625rem;
+
+  /*========== Font weight ==========*/
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== Margenes Bottom ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-3: 3rem;
+
+}
+
+/* Responsive typography */
+@media screen and (max-width: 992px) {
+  :root {
+    --big-font-size: 2.75rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--main-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  padding: 0 3rem;
+}
+
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 2rem 0 2rem;
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  color: var(--title-color);
+}
+
+.section__subtitle {
+  font-size: var(--small-font-size);
+  margin-bottom: 4rem;
+}
+
+
+/*=============== LAYOUT ===============*/
+.container {
+  padding: 1rem 0;
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 992px) {
+  body{
+    padding: 0 2rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  :root {
+    --header-height: 3.5rem;
+  }
+  
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 0.6rem 0 0;
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 350px) {
+}
