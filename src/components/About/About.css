@@ -1,0 +1,115 @@
+.section__about {
+    border-bottom: 1px solid var(--title-color);
+    padding-bottom: 4rem;
+}
+
+.title__about {
+    font-size: 2rem;
+    text-align: center;
+    font-family: var(--body-font);
+    font-weight: 800;
+    padding-bottom: 1.5rem;
+}
+
+.container__about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 4rem;
+    margin-top: 2rem;
+}
+
+
+.about__img {
+    justify-self: center;
+    padding: 2rem;
+    background-color: var(--bg-color2);
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.about__info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: var(--mb-2);
+}
+
+.about__box {
+    background-color: var(--main-color);
+    border: 4px double black;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.about__icon {
+    color: var(--title-color);
+    width: 35px;
+    margin-bottom: 0.5rem;
+}
+
+.about__title {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-semi-bold);
+}
+
+.about__subtitle {
+    font-size: var(--small-font-size);
+}
+
+.desc__about {
+    font-size: var(--normal-font-size);
+    padding: 0 1rem 0 0;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 992px) {
+    .container__about {
+        grid-template-columns: 1fr;
+        row-gap: 2.5rem;
+    }
+
+    .about__img {
+    }
+
+    .about__box {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .about__data {
+        text-align: center;
+    }
+
+    .about__info {
+        justify-content: center;
+    }
+
+    .desc__about {
+        text-align: center;
+        padding: 0 5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* For medium devices */
+@media screen and (max-width: 576px) {
+    .about__info {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .desc__about {
+        text-align: center;
+        padding: 0;
+    }
+}
+
+/* For small devices */
+@media screen and (max-width: 360px) {
+    .about__info {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .about__box {
+        padding: 0.5rem 0.25rem;
+    }
+}

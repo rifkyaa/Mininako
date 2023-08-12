@@ -4,25 +4,27 @@ import iconflower from '../../assets/img/icon-flower.svg';
 import iconflower2 from '../../assets/img/icon-flower2.svg';
 import iconflower3 from '../../assets/img/icon-flower3.svg';
 import flower from '../../assets/img/about-flower.png';
-import mainFlower from '../../assets/img/hero-img.png'
-import mainFlower2 from '../../assets/img/hero-img2.png'
+import mainFlower from '../../assets/img/hero-img.png';
+import mainFlower2 from '../../assets/img/hero-img2.png';
+import { AiFillInstagram } from "react-icons/ai";
+import { FaTiktok } from "react-icons/fa";
 
 const Home = () => {
     const images = [
         {
             src: mainFlower,
-            desc: 'Flower Satu',
+            desc: 'Premium Affordable Bouquet & Flower',
         },
         {
             src: mainFlower2,
-            desc: 'Flower Dua',
+            desc: 'Premium Affordable Bouquet & Flower',
         },
       ];
     
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const [currentDesc, setCurrentDesc] = useState('');
-    const [isFlipping, setIsFlipping] = useState(false);
+    const [isFade, setIsFade] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -30,7 +32,7 @@ const Home = () => {
                 setCurrentImageIndex(prevIndex =>
                 prevIndex === images.length - 1 ? 0 : prevIndex + 1
                 );
-                setIsFlipping(true);
+                setIsFade(true);
             }
             }, 6000);
   
@@ -50,11 +52,11 @@ const Home = () => {
     };
 
     const handleAnimationEnd = () => {
-        setIsFlipping(false);
+        setIsFade(false);
     };
     
   return (
-    <div className="container">
+    <div className="container__home" id='home'>
         <div className="pattern-circle"></div>
         <div className="pattern-square"></div>
         <div className="pattern-triangle"></div>
@@ -63,6 +65,17 @@ const Home = () => {
                 <h1 className="main-title">Premium Affordable Bouquet & Flower</h1>
             </div>
             {/* <button className="btn-cta">Order</button> */}
+            <div className="wrapper__icon">
+                <a href="#" className='home__social-icon' target="_blank">
+                    <AiFillInstagram className='icon-sosmed'/><span className='title-icon'>Instagram</span>   
+                </a>
+                <a href="#" className='home__social-icon' target="_blank">
+                    <FaTiktok className='icon-sosmed'/><span className='title-icon'>Tiktok</span>   
+                </a>
+                <a href="#" className='home__social-icon' target="_blank">
+                    <FaTiktok className='icon-sosmed'/><span className='title-icon'>Tiktok</span>   
+                </a>
+            </div>
             <div className="card-second">
                 <div className="shapes"></div>
                 <div className="content-img">
@@ -73,25 +86,9 @@ const Home = () => {
                     <p className="desc-card">if flowers symbolizes beauty, then a bouquet of flowers symbolizes happiness and loyalty. Give a special gift to a special person .</p>
                 </div>
             </div>
-            <div className="content__card">
-                <div className="wrapper__icon">
-                    <img src={iconflower} className="icon-flower" />
-                    <h3 className="text__content">Design Bouquet</h3>
-                </div>
-
-                <div className="wrapper__icon">
-                    <img src={iconflower2} className="icon-flower" />
-                    <h3 className="text__content">Premium Flower</h3>
-                </div>
-
-                <div className="wrapper__icon">
-                    <img src={iconflower3} className="icon-flower" />
-                    <h3 className="text__content">Secure Pack</h3>
-                </div>
-            </div>
         </section>
         <section  className='section-right'>
-            <div className={`main-content ${isFlipping ? 'flipping' : ''}`}
+            <div className={`main-content ${isFade ? 'fade' : ''}`}
                 onAnimationEnd={handleAnimationEnd}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
