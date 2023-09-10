@@ -81,6 +81,7 @@
 }
 
 .icon__best-seller {
+    overflow-y: hidden;
     color: var(--neutral-color);
     font-size: 1.5rem;
 }
@@ -92,7 +93,6 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: var(--main-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,8 +218,8 @@
         flex-direction: column;
     }
     .modal-image-home {
-        width: 300px;
-        height: 300px;
+        width: 200px;
+        height: 200px;
     }
     .bg-pattern {
         top: 40%;
@@ -228,8 +228,14 @@
         height: 300px;
     }
     .modal-close-home {
-        font-size: 3rem;
+        font-size: 2rem;
         z-index: 10;
+    }
+    .wrapper-desc__bouquet-home {
+        width: 300px;
+    }
+    .wrapper-order {
+        width: 300px;
     }
 }
 

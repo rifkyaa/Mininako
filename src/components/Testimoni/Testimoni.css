@@ -135,6 +135,9 @@
     .wrapper__testi {
         width: 350px;
     }
+    .contact__form {
+        width: 330px;
+    }
 }
 
 @media screen and (max-width: 576px) {

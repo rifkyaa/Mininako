@@ -52,7 +52,7 @@
     position: relative;
     max-width: 190px;
 }
-  
+
 .input {
     height: 40px;
     line-height: 28px;
@@ -80,13 +80,6 @@
 }
 /* END SEARCH */
 
-
-.content__bouquet {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 .title-kosong {
     font-size: 1rem;
@@ -152,10 +145,11 @@
     text-align: center;
 }
 /* CARD END */
-  
+
 
 /* BouquetModalOverlay */
-.bouquet-modal-overlay {
+/* .bouquet-modal-overlay {
+    background-color: #28a745;
     position: fixed;
     top: 2rem;
     left: 0;
@@ -228,7 +222,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-}
+} */
 /* BouquetModalOverlay End */
 
 

@@ -58,7 +58,7 @@ const Home = () => {
           name: 'Eternal Elegance',
           image: mainFlower2,
           price: '100.000',
-          description: 'Eternal Elegance adalah perwujudan sempurna dari keanggunan abadi dalam sebuah rangkaian bunga. Dengan komposisi yang dipilih secara cermat, bunga-bunga indah ini menciptakan harmoni yang memukau. Setiap kelopaknya mencerminkan keindahan yang tak tergoyahkan seiring berjalannya waktu.',
+          description: 'Eternal Elegance adalah perwujudan sempurna dari keanggunan abadi dalam sebuah rangkaian bunga. Dengan komposisi yang dipilih secara cermat.....',
           rating: 4,
         },
         {

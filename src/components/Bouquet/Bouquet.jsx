@@ -12,8 +12,7 @@ import productImg8 from "../../assets/img/products/product8.png"
 import productImg9 from "../../assets/img/products/product9.png"
 import { AiFillEye } from "react-icons/ai"
 import { MdOutlineShoppingCartCheckout } from "react-icons/md"
-import BouquetModal from './BouquetModal'
-// import productImg7 from "../../assets/img/products/product7.png"
+// import BouquetModal from './BouquetModal'
 
 const Bouquet = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,15 +22,15 @@ const Bouquet = () => {
 
   const [selectedBouquet, setSelectedBouquet] = useState(null);
 
-  const handleOpenModal = (index) => {
-    setSelectedBouquet(index);
-    document.body.style.overflow = "hidden";
-  };
+  // const handleOpenModal = (index) => {
+  //   setSelectedBouquet(index);
+  //   document.body.style.overflow = "hidden";
+  // };
   
-  const handleCloseModal = () => {
-    document.body.style.overflow = "auto";
-    setSelectedBouquet(null);
-  };
+  // const handleCloseModal = () => {
+  //   document.body.style.overflow = "auto";
+  //   setSelectedBouquet(null);
+  // };
 
   const bouquetData = [
     { 
@@ -189,7 +188,6 @@ const Bouquet = () => {
               <div key={item.id} className='card'>
                 <div className="wrapper__icon">
                   <MdOutlineShoppingCartCheckout className='icon__bouquet' onClick={() => handleOrderClick(item.name, item.price)}/>
-                  <AiFillEye className='icon__bouquet' onClick={() => handleOpenModal(index)}/>
                 </div>
                 <div className="card-inner">
                   <img src={item.img} alt={item.name} className='img-bouquet'/>
@@ -199,11 +197,11 @@ const Bouquet = () => {
                 </div>
               </div>
             ))}
-            <BouquetModal
+            {/* <BouquetModal
               bouquetData={bouquetData}
               selectedBouquet={selectedBouquet}
               onClose={handleCloseModal}
-            />
+            /> */}
         </div>
       )}
   </section>
