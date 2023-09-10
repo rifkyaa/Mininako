@@ -13,7 +13,7 @@ const Testimoni = () => {
     const [name, setName] = useState('');
     const [testimonialText, setTestimonialText] = useState('');
     const [testimonials, setTestimonials] = useState([]);
-    const [testiNumber, setTestiNumber] = useState(3);
+    const [testiNumber, setTestiNumber] = useState(1);
   
     const submitTestimonial = () => {
       if (name.trim() !== '' && testimonialText.trim() !== '') {
@@ -45,16 +45,6 @@ const Testimoni = () => {
       <section className='section__testimoni' id='testimoni'>
         <div className="wrapper__result" data-aos="fade-right">
           <h1 className="title__result">Testimonials</h1>
-          <div className="wrapper__testi">
-            <span className='no__testi'>1</span>
-            <h3 className="name__testi">Ilham</h3>
-            <p className="text__testi">Keren euy</p>
-          </div>
-          <div className="wrapper__testi">
-            <span className='no__testi'>2</span>
-            <h3 className="name__testi">Sutanto</h3>
-            <p className="text__testi">Gacor Kang</p>
-          </div>
           {testimonials.map((testimonial) => (
             <div key={testimonial.number} className='wrapper__testi'>
               <span className='no__testi'>{testimonial.number}</span>
