@@ -14,7 +14,7 @@ const Header = () => {
     
   return (
       <header className="header">
-            <nav>
+            <nav className='nav container'>
                 <div className={Toggle ? "nav__menu show-menu" : "nav__menu"}>
                     <a href="/" className='logo'>
                         <h1 className='logo__menu'>mininako</h1>

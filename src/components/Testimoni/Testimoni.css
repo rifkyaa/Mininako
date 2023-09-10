@@ -9,6 +9,7 @@
 .wrapper__result {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -125,11 +126,14 @@
 @media screen and (max-width: 768px) {
     .section__testimoni {
         flex-direction: column;
-        padding: 0 0.8rem;
+        padding: 0 1rem;
         gap: 4rem;
     }
     .title__form, .title__result {
         font-size: 1.5rem;
+    }
+    .wrapper__testi {
+        width: 350px;
     }
 }
 

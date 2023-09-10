@@ -161,6 +161,10 @@ nav {
 } */
 
 @media screen and (max-width: 768px) {  
+    .header {
+        width: 85%;
+    }
+    
     .nav {
         height: var(--header-height);
     }
