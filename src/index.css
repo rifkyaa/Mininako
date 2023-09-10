@@ -4,11 +4,11 @@
 }
 
 body ::-webkit-scrollbar-thumb {
-background-color: var(--dark-main-color);
+background-color: var(--neutral-color);
 }
 
 ::-webkit-scrollbar-thumb {
-background-color: var(--purple-color);
+    background-color: var(--neutral-color);
 }
 
 ::-webkit-scrollbar-track {

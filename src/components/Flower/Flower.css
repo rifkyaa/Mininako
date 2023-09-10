@@ -1,0 +1,193 @@
+.section__flowerFood {
+  margin-bottom: 3rem;
+  max-width: 100%;
+}
+
+.section__flower {
+  position: relative;
+  background-image: url('../../assets/img/premium-flower.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.icon-flower {
+    position: absolute;
+    width: 80px;
+    left: 16%;
+    top: 18%;
+    transform: rotate(50deg);
+    filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.363));
+    user-select: none;
+}
+
+.icon-flower2 {
+    position: absolute;
+    width: 30px;
+    right: 36%;
+    top: 18%;
+    filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.363));
+    user-select: none;
+}
+
+
+.wrapper-flower, .wrapper-food {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title__flower, .title__food {
+    color: var(--text-white);
+    font-size: 5rem;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    color: transparent; 
+    text-align: center;
+    cursor: default;
+}
+
+.subtitle__flower, .subtitle__food {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #fff;
+    cursor: default;
+}
+
+.btn__flower, .btn__food {
+    font-size: 1.3rem;
+    background: none;
+    border: 1.5px solid #fff;
+    color: var(--text-white);
+    padding: 0.5rem 3rem;
+    transition: 0.2s linear;
+}
+
+.btn__flower:hover, .btn__food:hover {
+  color: var(--title-color-dark);
+  background-color: var(--text-white);
+}
+
+.section__food {
+  position: relative;
+  background-image: url('../../assets/img/bg-food.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  height: 400px;
+  max-width: 100%;
+}
+
+/* FlowerModalOverlay */
+.flower-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.flower-modal {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    width: 100vw;
+    height: 100vh;
+}
+
+.modal-content-flower {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.flower-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--dark-main-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  height: 350px;
+  width: 200px;
+}
+
+.flower-image {
+  width: 200px;
+  height: 250px;
+  object-fit: contain;
+  filter: drop-shadow(3px 4px 1px rgba(0, 0, 0, 0.363)); 
+}
+
+.btn-close-flower {
+  position: absolute;
+  font-size: 1.5rem;
+  cursor: pointer;
+  top: 1rem;
+}
+
+/* FlowerModalOverlay End */
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 992px) {
+  .icon-flower {
+    left: 0;
+  }
+  .icon-flower2 {
+    right: 28%;
+  }
+  .btn-close-flower {
+    font-size: 3rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  .section__flower, .section__food {
+    padding: 2rem 0;
+    background-position: bottom;
+    height: 300px;
+  }
+
+  .title__flower, .title__food {
+    font-size: 2rem;
+  }
+
+  .subtitle__flower, .subtitle__food {
+    font-size: 1rem;
+  }
+  
+  .btn__flower, .btn__food {
+    padding: 0.3rem 2rem;
+    font-size: 1rem;
+  }
+
+  .icon-flower {
+    width: 50px;
+    left: 20%;
+    top: 4.5rem;
+  }
+
+  .icon-flower2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+}
+
+/* For small devices */
+@media screen and (max-width: 350px) {
+}

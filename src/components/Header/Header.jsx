@@ -1,40 +1,63 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Header.css';
-import { BiMenuAltRight } from "react-icons/bi";
-import { AiFillCloseCircle } from "react-icons/ai";
-import { LuPanelLeftClose, LuPanelRightClose } from "react-icons/lu";
 
 const Header = () => {
+    /*=============== Change Navbar Color ===============*/
+    window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header");
+        if (this.scrollY >= 70) header.classList.add("scroll-header");
+        else header.classList.remove("scroll-header")
+    })
+
   const [Toggle, showMenu] = useState(false);
+  const [activeNav, setActiveNav] = useState("#home")
     
   return (
       <header className="header">
             <nav>
                 <div className={Toggle ? "nav__menu show-menu" : "nav__menu"}>
-                    <a href="#" className='logo'>
+                    <a href="/" className='logo'>
                         <h1 className='logo__menu'>mininako</h1>
                     </a>
                     <ul className="nav__list first">
                         <li className="nav__item">
-                            <a href="#home" className='nav__link'>Home</a>
+                            <a href="#home" 
+                            className={activeNav === "#home" ? "nav__link active-link" : "nav__link"}
+                            onClick={() => setActiveNav('#home')}
+                            >Home</a>
                         </li>
                         <li className="nav__item">
-                            <a href="#about" className='nav__link'>About</a>
+                            <a href="#about" 
+                            className={activeNav === "#about" ? "nav__link active-link" : "nav__link"}
+                            onClick={() => setActiveNav('#about')}
+                            >About</a>
                         </li>
                         <li className="nav__item">
-                            <a href="#bouquet" className='nav__link'>Bouquet</a>
+                            <a href="#bouquet" 
+                            className={activeNav === "#bouquet" ? "nav__link active-link" : "nav__link"}
+                            onClick={() => setActiveNav('#bouquet')}
+                            >Bouquet</a>
                         </li>
                         
                     </ul>
                     <ul className="nav__list second">
                         <li className="nav__item">
-                            <a href="#flower" className='nav__link'>Flower</a>
+                            <a href="#other" 
+                            className={activeNav === "#other" ? "nav__link active-link" : "nav__link"}
+                            onClick={() => setActiveNav('#other')}
+                            >Other</a>
                         </li>
                         <li className="nav__item">
-                            <a href="#team" className='nav__link'>Team</a>
+                            <a href="#testimoni" 
+                            className={activeNav === "#testimoni" ? "nav__link active-link" : "nav__link"}
+                            onClick={() => setActiveNav('#testimoni')}
+                            >Testimoni</a>
                         </li>
                         <li className="nav__item">
-                            <a href="#contact" className='nav__link'>Contact</a>
+                            <a href="#contact" 
+                            className={activeNav === "#contact" ? "nav__link active-link" : "nav__link"}
+                            onClick={() => setActiveNav('#contact')}
+                            >Contact</a>
                         </li>
                     </ul>
                 </div>

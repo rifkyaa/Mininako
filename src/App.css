@@ -8,14 +8,13 @@
   /*Color mode HSL(hue, saturation, lightness)*/
   --hue: 0;
   --sat: 0%;
-  --text-white: #fff;
-  --title-color: #000000;
-  --title-color-dark: #747171;
-  --main-color: #fdf6f2;
-  --dark-main-color: #f3e6d9;
-  --purple-color: #da91f9;
-  --bg-color: #754d7b;
-  --bg-color2: #fec689;
+  --text-white: #FFFFFF;
+  --title-color-dark: #263339;
+  --grey-color: #728f9e;
+  --main-color: #fbfbfb;
+  --dark-main-color: #f8f1e6;
+  --neutral-color: #AB8C52;
+  --neutral-color2: #706347;
   --shadow-color: box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
 
   /*========== Font and typography ==========*/
@@ -85,7 +84,6 @@ body {
   background-color: var(--main-color);
   color: var(--text-color);
   font-family: var(--body-font);
-  padding: 0 3rem;
 }
 
 
@@ -109,10 +107,6 @@ img {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
-.section {
-  padding: 2rem 0 2rem;
-}
-
 .section__title {
   font-size: var(--h1-font-size);
   color: var(--title-color);
@@ -123,6 +117,10 @@ img {
   margin-bottom: 4rem;
 }
 
+.unique-title {
+  color: var(--neutral-color);
+}
+
 
 /*=============== LAYOUT ===============*/
 .container {
@@ -130,12 +128,10 @@ img {
 }
 
 
+
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 992px) {
-  body{
-    padding: 0 2rem;
-  }
 }
 
 /* For medium devices */
@@ -147,13 +143,6 @@ img {
 }
 
 @media screen and (max-width: 576px) {
-  body {
-    padding: 0 1rem;
-  }
-
-  .section {
-    padding: 0.6rem 0 0;
-  }
 }
 
 /* For small devices */

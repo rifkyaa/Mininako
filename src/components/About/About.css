@@ -1,13 +1,13 @@
 .section__about {
-    border-bottom: 1px solid var(--title-color);
-    padding-bottom: 4rem;
+    padding: 7rem 1rem;
+    background-color: var(--dark-main-color);
 }
 
 .title__about {
     font-size: 2rem;
     text-align: center;
-    font-family: var(--body-font);
-    font-weight: 800;
+    color: var(--title-color-dark);
+    text-transform: uppercase;
     padding-bottom: 1.5rem;
 }
 
@@ -23,8 +23,7 @@
 .about__img {
     justify-self: center;
     padding: 2rem;
-    background-color: var(--bg-color2);
-    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: var(--neutral-color);
 }
 
 .about__info {
@@ -35,14 +34,12 @@
 }
 
 .about__box {
-    background-color: var(--main-color);
-    border: 4px double black;
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
     text-align: center;
     padding: 2rem 1rem;
 }
 
 .about__icon {
-    color: var(--title-color);
     width: 35px;
     margin-bottom: 0.5rem;
 }
@@ -67,9 +64,6 @@
     .container__about {
         grid-template-columns: 1fr;
         row-gap: 2.5rem;
-    }
-
-    .about__img {
     }
 
     .about__box {

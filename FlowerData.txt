@@ -1,23 +1,12 @@
-import React from 'react';
-import './App.css';
 // Image
 import flower from "../src/assets/img/flower/flower.png"
 import flower2 from "../src/assets/img/flower/flower2.png"
 import flower3 from "../src/assets/img/flower/flower3.png"
 import flower4 from "../src/assets/img/flower/flower4.png"
 import flower5 from "../src/assets/img/flower/flower5.png"
-// Image End
-import Header from './components/Header/Header';
-import Home from './components/Home/Home';
-import About from './components/About/About';
-import Bouquet from './components/Bouquet/Bouquet';
-import Flower from './components/Flower/Flower';
-import Testimoni from './components/Testimoni/Testimoni';
-import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
+// Image End  
 
-const App = () => {
-  const flowerData = [
+const flowerData = [
     {
       id: 1,
       name: 'Red Rose',
@@ -49,23 +38,3 @@ const App = () => {
       price: '100.000',
     },
   ];
-
-  return (
-    <>
-      <Header />
-
-      <main className='main'>
-        <Home />
-        <About />
-        <Bouquet />
-        <Flower flowerData={flowerData} />
-        <Testimoni />
-        <Contact />
-      </main>
-
-      <Footer />
-    </>
-  )
-}
-
-export default App

@@ -1,0 +1,46 @@
+.section__footer {
+    padding: 0 1rem;
+    background-color: var(--dark-main-color);
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+}
+
+.cr__contact {
+    font-size: 1rem;
+}
+
+.social__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.instagram-icon,
+.tiktok-icon {
+    font-size: 24px;
+    color: var(--title-color);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 992px) {
+    
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+    .cr__contact {
+        width: 200px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+}
+
+/* For small devices */
+@media screen and (max-width: 350px) {
+}

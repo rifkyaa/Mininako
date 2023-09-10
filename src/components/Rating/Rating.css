@@ -1,0 +1,39 @@
+/* Rating */
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 7px 0;
+}
+
+.star {
+    display: inline-block;
+    font-size: 1rem;
+    color: #FFD700; /* Warna kuning untuk bintang terisi */
+    transition: color 0.3s;
+}
+
+.star.empty {
+    color: #ccc; /* Warna abu-abu untuk bintang kosong */
+}
+
+.star.half {
+    position: relative;
+}
+
+.star.half::before {
+    content: '\2605'; /* Karakter Unicode untuk bintang terisi */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    color: #FFD700;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+/* End Rating */

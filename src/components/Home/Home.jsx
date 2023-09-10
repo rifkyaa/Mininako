@@ -1,108 +1,138 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Home.css';
-import iconflower from '../../assets/img/icon-flower.svg';
-import iconflower2 from '../../assets/img/icon-flower2.svg';
-import iconflower3 from '../../assets/img/icon-flower3.svg';
-import flower from '../../assets/img/about-flower.png';
+import { BiDownArrow } from 'react-icons/bi'
 import mainFlower from '../../assets/img/hero-img.png';
 import mainFlower2 from '../../assets/img/hero-img2.png';
-import { AiFillInstagram } from "react-icons/ai";
-import { FaTiktok } from "react-icons/fa";
+import mainFlower3 from '../../assets/img/products/product2.png';
+import mainFlower4 from '../../assets/img/products/product3.png';
+import mainFlower5 from '../../assets/img/products/product6.png';
+import mainFlower6 from '../../assets/img/products/product4.png';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
+import "animate.css"
+import Modal from './Modal';
+
+import AOS from "aos";
+import 'aos/dist/aos.css';
+
 
 const Home = () => {
-    const images = [
-        {
-            src: mainFlower,
-            desc: 'Premium Affordable Bouquet & Flower',
-        },
-        {
-            src: mainFlower2,
-            desc: 'Premium Affordable Bouquet & Flower',
-        },
-      ];
-    
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const [isHovered, setIsHovered] = useState(false);
-    const [currentDesc, setCurrentDesc] = useState('');
-    const [isFade, setIsFade] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const swiperRef = useRef(null);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (!isHovered) {
-                setCurrentImageIndex(prevIndex =>
-                prevIndex === images.length - 1 ? 0 : prevIndex + 1
-                );
-                setIsFade(true);
-            }
-            }, 6000);
   
-      return () => {
-        clearInterval(interval);
-      };
-    }, [images, isHovered]);
+  useEffect(() => {
+    AOS.init();
+    if (swiperRef.current) {
+      const swiper = swiperRef.current.swiper;
+      swiper.params.slidesPerView = window.innerWidth < 768 ? 2 : 4;
+      swiper.params.spaceBetween = window.innerWidth < 768 ? 20 : 60;
+      swiper.update();
+    }
+  }, []);
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-        setCurrentDesc(images[currentImageIndex].desc);
-      };
-    
-    const handleMouseLeave = () => {
-    setIsHovered(false);
-    setCurrentDesc('');
-    };
+  const handleOpenModal = (index) => {
+    document.body.style.overflow = "hidden";
+    setSelectedProduct(index);
+    setModalOpen(true);
+  };
+  
+  const handleCloseModal = () => {
+    document.body.style.overflow = "auto";
+    setSelectedProduct(null);
+    setModalOpen(false);
+  };
 
-    const handleAnimationEnd = () => {
-        setIsFade(false);
-    };
-    
+  const products = [
+        {
+          name: 'Dasly',
+          image: mainFlower,
+          price: '50.000',
+          description: 'Dasly adalah pilihan sempurna untuk Anda yang menyukai keindahan tanaman buatan. Dengan tampilan yang menawan, Dasly memberikan sentuhan alam dalam gaya yang elegan.',
+          rating: 4.5,
+        },
+        {
+          name: 'Eternal Elegance',
+          image: mainFlower2,
+          price: '100.000',
+          description: 'Eternal Elegance adalah perwujudan sempurna dari keanggunan abadi dalam sebuah rangkaian bunga. Dengan komposisi yang dipilih secara cermat, bunga-bunga indah ini menciptakan harmoni yang memukau. Setiap kelopaknya mencerminkan keindahan yang tak tergoyahkan seiring berjalannya waktu.',
+          rating: 4,
+        },
+        {
+          name: 'Baby Pink',
+          image: mainFlower3,
+          price: '50.000',
+          description: 'Baby Pink adalah pilihan yang lembut dan cantik untuk memberikan sentuhan kebahagiaan pada setiap momen. Dengan nuansa warna merah muda yang manis, bunga ini cocok untuk memberikan hadiah yang indah.',
+          rating: 5,
+        },
+        {
+          name: 'Rossa',
+          image: mainFlower4,
+          price: '150.000',
+          description: 'Rossa adalah simbol cinta dan semangat. Bunga ini menghadirkan keindahan merah yang mencolok, menyampaikan perasaan yang mendalam dan berarti.',
+          rating: 3,
+        },
+        {
+          name: 'White Coffee',
+          image: mainFlower5,
+          price: '100.000',
+          description: 'White Coffee adalah pilihan yang elegan dan eksklusif. Dengan tampilan putih yang mewah, bunga ini cocok untuk memberikan kesan istimewa.',
+          rating: 5,
+        },
+        {
+          name: 'Rora',
+          image: mainFlower6,
+          price: '100.000',
+          description: 'Rora adalah kombinasi antara keanggunan dan daya tahan. Dengan desain yang unik dan menarik, bunga ini memberikan kesan yang tak terlupakan.',
+          rating: 3.5,
+        },
+  ];
+
   return (
-    <div className="container__home" id='home'>
-        <div className="pattern-circle"></div>
-        <div className="pattern-square"></div>
-        <div className="pattern-triangle"></div>
-        <section className="section section-left">
-            <div className="title">
-                <h1 className="main-title">Premium Affordable Bouquet & Flower</h1>
-            </div>
-            {/* <button className="btn-cta">Order</button> */}
-            <div className="wrapper__icon">
-                <a href="#" className='home__social-icon' target="_blank">
-                    <AiFillInstagram className='icon-sosmed'/><span className='title-icon'>Instagram</span>   
-                </a>
-                <a href="#" className='home__social-icon' target="_blank">
-                    <FaTiktok className='icon-sosmed'/><span className='title-icon'>Tiktok</span>   
-                </a>
-                <a href="#" className='home__social-icon' target="_blank">
-                    <FaTiktok className='icon-sosmed'/><span className='title-icon'>Tiktok</span>   
-                </a>
-            </div>
-            <div className="card-second">
-                <div className="shapes"></div>
-                <div className="content-img">
-                    <img src={flower} alt="flower" className='flower-img'/>
-                </div>
-                <div className="title-img">
-                    <h4 className="title-card">Make Your Special One Today.</h4>
-                    <p className="desc-card">if flowers symbolizes beauty, then a bouquet of flowers symbolizes happiness and loyalty. Give a special gift to a special person .</p>
-                </div>
-            </div>
-        </section>
-        <section  className='section-right'>
-            <div className={`main-content ${isFade ? 'fade' : ''}`}
-                onAnimationEnd={handleAnimationEnd}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                 >
-                <img key={currentImageIndex} src={images[currentImageIndex].src} alt="Main-Img" className='main-img'/>
-                {isHovered && (
-                <div className="desc">
-                    <h1 className='text-desc'>{currentDesc}</h1>
-                </div>
-                )}
-            </div>
-        </section>
-    </div>
+    <section className="container section__home" id='home'>
+      <div className="bg-pattern"></div>
+      <div className="wrapper__title" data-aos="fade-down" data-aos-duration="2000">
+        <h1 className="title__home">Premium Affordable Bouquet & Flower</h1>
+        <span className="subtitle__home">"Happiness is a choice, not a result. Nothing will make you happy until you choose to be happy."</span>
+      </div>
+      <div className="wrapper__best-seller" data-aos="fade-down" data-aos-duration="2000">
+        <h3 className="best__seller">Best Seller</h3>
+        <BiDownArrow className='icon__best-seller animate__animated animate__shakeY animate__infinite animate__slower'/>
+      </div>
+      <div className="wrapper__hero" data-aos="fade-left" data-aos-duration="2000">
+        <Swiper
+          ref={swiperRef}
+          init="false"
+          centeredSlides={true}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
+          modules={Pagination}
+          className="mySwiper"
+        >
+          {products.map((product, index) => (
+            <SwiperSlide key={index}>
+                <img
+                    src={product.image}
+                    alt={`Slide ${index}`}
+                    className={`img-swiper ${selectedProduct === index ? 'activeSlide' : ''}`}
+                    onClick={() => handleOpenModal(index)}
+                />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      <Modal
+        isOpen={modalOpen}
+        onClose={handleCloseModal}
+        product={products[selectedProduct]}
+    />
+    </section>
   )
 }
 
-export default Home
+export default Home;

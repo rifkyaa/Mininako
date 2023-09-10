@@ -6,7 +6,14 @@ import productImg2 from "../../assets/img/products/product2.png"
 import productImg3 from "../../assets/img/products/product3.png"
 import productImg4 from "../../assets/img/products/product4.png"
 import productImg5 from "../../assets/img/products/product5.png"
-// import productImg6 from "../../assets/img/products/product6.png"
+import productImg6 from "../../assets/img/products/product6.png"
+import productImg7 from "../../assets/img/products/product7.png"
+import productImg8 from "../../assets/img/products/product8.png"
+import productImg9 from "../../assets/img/products/product9.png"
+import { AiFillEye } from "react-icons/ai"
+import { MdOutlineShoppingCartCheckout } from "react-icons/md"
+import BouquetModal from './BouquetModal'
+// import productImg7 from "../../assets/img/products/product7.png"
 
 const Bouquet = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -14,18 +21,105 @@ const Bouquet = () => {
   const [noResults, setNoResults] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState('all');
 
-  const data = [
-    { id: 1, name: 'Bounty', img: productImg, price: '100.000', category: 'fresh'},
-    { id: 2, name: 'Baby Pink', img: productImg2, price: '50.000', category: 'fresh'},
-    { id: 3, name: 'Rossa', img: productImg3, price: '150.000', category: 'fresh'},
-    { id: 4, name: 'Rora', img: productImg4, price: '100.000', category: 'artifical'},
-    { id: 5, name: 'Dasly', img: productImg5, price: '50.000', category: 'artifical'},
-    // { id: 6, name: 'Snash', img: productImg6, price: '150.000', category: 'snackDanRokok'},
+  const [selectedBouquet, setSelectedBouquet] = useState(null);
+
+  const handleOpenModal = (index) => {
+    setSelectedBouquet(index);
+    document.body.style.overflow = "hidden";
+  };
+  
+  const handleCloseModal = () => {
+    document.body.style.overflow = "auto";
+    setSelectedBouquet(null);
+  };
+
+  const bouquetData = [
+    { 
+      id: 1, 
+      name: 'Bounty', 
+      img: productImg, 
+      price: '100.000', 
+      category: 'fresh', 
+      desc:'Bounty adalah bukti keindahan alam dengan warna-warna cerah yang menggembirakan. Cocok untuk menyegarkan suasana dan menyampaikan pesan positif.', 
+      rating:4
+    },
+    { 
+      id: 2, 
+      name: 'Baby Pink', 
+      img: productImg2, 
+      price: '50.000', 
+      category: 'fresh', 
+      desc:'Baby Pink adalah pilihan yang lembut dan cantik untuk memberikan sentuhan kebahagiaan pada setiap momen. Dengan nuansa warna merah muda yang manis, bunga ini cocok untuk memberikan hadiah yang indah.', 
+      rating:5
+    },
+    { 
+      id: 3, 
+      name: 'Rossa', 
+      img: productImg3, 
+      price: '150.000', 
+      category: 'fresh', 
+      desc:'Rossa adalah simbol cinta dan semangat. Bunga ini menghadirkan keindahan merah yang mencolok, menyampaikan perasaan yang mendalam dan berarti.', 
+      rating:3
+    },
+    { 
+      id: 4, 
+      name: 'Rora', 
+      img: productImg4, 
+      price: '100.000', 
+      category: 'artifical', 
+      desc:'Rora adalah kombinasi antara keanggunan dan daya tahan. Dengan desain yang unik dan menarik, bunga ini memberikan kesan yang tak terlupakan.', 
+      rating:3.5
+    },
+    { 
+      id: 5, 
+      name: 'Dasly',
+      img: productImg5, 
+      price: '50.000', 
+      category: 'artifical', 
+      desc:'Bounty adalah bukti keindahan alam dengan warna-warna cerah yang menggembirakan. Cocok untuk menyegarkan suasana dan menyampaikan pesan positif.', 
+      rating:4.5
+    },
+    { 
+      id: 6, 
+      name: 'White Coffee', 
+      img: productImg6, 
+      price: '100.000', 
+      category: 'snackDanRokok', 
+      desc:'White Coffee adalah pilihan yang elegan dan eksklusif. Dengan tampilan putih yang mewah, bunga ini cocok untuk memberikan kesan istimewa.', 
+      rating:5
+    },
+    { 
+      id: 7, 
+      name: 'My Queen', 
+      img: productImg7, 
+      price: '150.000', 
+      category: 'snackDanRokok', 
+      desc:'My Queen adalah bunga yang menjadikan Anda sebagai raja atau ratu dalam momen spesial. Dengan keanggunan dan keindahan yang khas, bunga ini menghadirkan perasaan istimewa.', 
+      rating:5
+    },
+    { 
+      id: 8, 
+      name: 'Snack 4', 
+      img: productImg8, 
+      price: '70.000', 
+      category: 'snackDanRokok', 
+      desc:'Snack adalah pilihan yang lezat untuk menemani momen santai. Dari camilan favorit hingga makanan ringan yang menggugah selera, Snack hadir untuk mengisi keperluan Anda.', 
+      rating:4.5
+    },
+    { 
+      id: 9, 
+      name: 'Money 1', 
+      img: productImg9, 
+      price: '100.000', 
+      category: 'money', 
+      desc:'Money adalah simbol keberuntungan dan kekayaan. Dengan desain yang menggambarkan mata uang dan keemasan, Money memberikan pesan positif tentang kelimpahan dan kesuksesan dalam hidup..', 
+      rating:4
+    },
   ];
 
   useEffect(() => {
     setFilteredData(
-      data.filter((item) =>
+      bouquetData.filter((item) =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
         (categoryFilter === 'all' || item.category === categoryFilter)
       )
@@ -36,7 +130,7 @@ const Bouquet = () => {
     const keyword = e.target.value;
     setSearchTerm(keyword);
 
-    const filtered = data.filter((item) =>
+    const filtered = bouquetData.filter((item) =>
       item.name.toLowerCase().includes(keyword.toLowerCase())
     );
 
@@ -53,12 +147,14 @@ const Bouquet = () => {
     1. Nama: ${name}
     2. Harga: ${price}`;
     const encodedTemplate = encodeURIComponent(template);
-    window.open(`https://wa.me/6281936187767?text=${encodedTemplate}`, '_blank');
+    window.open(`https://wa.me/6281245609434?text=${encodedTemplate}`, '_blank');
   };
 
   return (
-  <section className="section" id='bouquet'>
-    <h1 className="title__bouquet">Our Bouquet</h1>
+  <section className="section section__bouquet" id='bouquet'>
+    <div className="wrapper-title">
+      <h1 className="title__bouquet">Our <span className="unique-title">Bouquet</span></h1>
+    </div>
 
     <div className="header__bouquet">
       <div className="button__bouquet">
@@ -87,27 +183,27 @@ const Bouquet = () => {
 
     {noResults ? (
       <h3 className='title-kosong'>Product Tidak Tersedia</h3>
-      // <span className='title-kosong'>Eweuh Kembangna</span>
       ) : ( 
         <div className='container__bouquet'>
-            {filteredData.map((item) => (
+            {filteredData.map((item, index) => (
               <div key={item.id} className='card'>
+                <div className="wrapper__icon">
+                  <MdOutlineShoppingCartCheckout className='icon__bouquet' onClick={() => handleOrderClick(item.name, item.price)}/>
+                  <AiFillEye className='icon__bouquet' onClick={() => handleOpenModal(index)}/>
+                </div>
                 <div className="card-inner">
                   <img src={item.img} alt={item.name} className='img-bouquet'/>
                   <div className="wrapper-desc">
-                    <div>
                       <h3 className='title__card'>{item.name}</h3>
-                      <p className='price__card'>Rp. {item.price}</p>
-                    </div>
-                    <div className="wrapper-btn">
-                      <button className='btn-order' onClick={() => handleOrderClick(item.name, item.price)}>
-                        Order
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
             ))}
+            <BouquetModal
+              bouquetData={bouquetData}
+              selectedBouquet={selectedBouquet}
+              onClose={handleCloseModal}
+            />
         </div>
       )}
   </section>

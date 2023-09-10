@@ -1,0 +1,18 @@
+
+                <h1 className="main-title">Premium Affordable Bouquet & Flower</h1>
+                    <h4 className="title-card">Make Your Special One Today.</h4>
+                    <p className="desc-card">if flowers symbolizes beauty, then a bouquet of flowers symbolizes happiness and loyalty. Give a special gift to a special person .</p>
+        <section  className='section-right'>
+            <div className={`main-content ${isFade ? 'fade' : ''}`}
+                onAnimationEnd={handleAnimationEnd}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                 >
+                <img key={currentImageIndex} src={images[currentImageIndex].src} alt="Main-Img" className='main-img'/>
+                {isHovered && (
+                <div className="desc">
+                    <h1 className='text-desc'>{currentDesc}</h1>
+                </div>
+                )}
+            </div>
+        </section>
